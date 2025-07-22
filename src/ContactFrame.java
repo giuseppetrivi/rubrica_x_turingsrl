@@ -2,6 +2,10 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+
+/**
+ * Abstract class to define the base properties of label-fields-button frames defining contacts properties
+ */
 abstract public class ContactFrame extends FormFrame {
 
     /* all fields components of the frame */
@@ -12,12 +16,12 @@ abstract public class ContactFrame extends FormFrame {
     protected JTextField field_age;
 
     /* reference to the parent frame and its table model */
-    protected RubricaMainFrame parent_frame;
+    protected AddressBookMainFrame parent_frame;
     protected DefaultTableModel table_model;
     protected User user;
 
 
-    public ContactFrame(RubricaMainFrame parent_frame, DefaultTableModel table_model, User user) {
+    public ContactFrame(AddressBookMainFrame parent_frame, DefaultTableModel table_model, User user) {
         this.parent_frame = parent_frame;
         this.table_model = table_model;
         this.user = user;
@@ -75,14 +79,16 @@ abstract public class ContactFrame extends FormFrame {
 
 
     /**
-     * Add the <code>ActionListener</code> to the save button
+     * Add the <code>ActionListener</code> to the save button:
+     * on click saves the contact properties (add or edit).
      * @param button_save <code>JButton</code> instance of save button
      */
     abstract protected void buttonSaveActionListener(JButton button_save);
 
 
     /**
-     * Add the <code>ActionListener</code> to the cancel button
+     * Add the <code>ActionListener</code> to the cancel button:
+     * on click closes the ContactFrame and re-opens the RubricaMainFrame
      * @param button_cancel <code>JButton</code> instance of cancel button
      */
     protected void buttonCancelActionListener(JButton button_cancel) {

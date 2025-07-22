@@ -1,10 +1,10 @@
-import java.io.FileReader;
+import java.io.*;
 import java.util.Properties;
 
 /**/
 public class DBProperties extends Properties {
 
-    private final static String DB_PROP_FILENAME = "configuration/db.properties";
+    private final static String DB_PROP_FILENAME = "db.properties";
     private static Properties prop = null;
 
 
@@ -13,11 +13,14 @@ public class DBProperties extends Properties {
      */
     private DBProperties() {
         super();
-        try {
-            FileReader file = new FileReader(DBProperties.DB_PROP_FILENAME);
-            this.load(file);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        String cwd = System.getProperty("user.dir");
+        File file = new File(cwd, DBProperties.DB_PROP_FILENAME);
+
+        try (InputStream is = new FileInputStream(file)) {
+            this.load(is);
+            // usa props...
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

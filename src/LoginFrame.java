@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 
-/* */
 public class LoginFrame extends FormFrame {
 
     /* all fields components of the frame */
@@ -19,9 +18,7 @@ public class LoginFrame extends FormFrame {
 
 
     @Override
-    protected String getFrameTitle() {
-        return "Login - Rubrica (by Giuseppe Trivisano)";
-    }
+    protected String getFrameTitle() { return "Login - Rubrica (by Giuseppe Trivisano)"; }
 
 
     @Override
@@ -64,7 +61,7 @@ public class LoginFrame extends FormFrame {
 
 
     /**
-     * Add the <code>ActionListener</code> to the login button
+     * Adds the <code>ActionListener</code> to the login button
      * @param button_login <code>JButton</code> instance of login button
      */
     private void buttonLoginActionListener(JButton button_login) {
@@ -75,7 +72,9 @@ public class LoginFrame extends FormFrame {
                 User user = User.verifyLoginData(username, password);
                 if (user != null) {
                     dispose();
-                    new RubricaMainFrame(user).setVisible(true);
+                    new AddressBookMainFrame(LoginFrame.this, user).setVisible(true);
+                    field_username.setText("");
+                    field_password.setText("");
                 }
                 else {
                     JOptionPane.showMessageDialog(LoginFrame.this, "I dati di accesso non sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);

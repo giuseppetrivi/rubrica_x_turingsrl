@@ -1,8 +1,9 @@
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-/* */
+/**
+ * Abstract class to define the base properties of label-fields-button frames
+ */
 abstract public class FormFrame extends JFrame {
 
     /* constants to be used in the label and field settings */
@@ -32,11 +33,11 @@ abstract public class FormFrame extends JFrame {
 
     /**
      * Create a label-field couple of components, to put it into panel of fields
-     * @param panel_fields
-     * @param gbc
-     * @param gridy
-     * @param label_name
-     * @param field
+     * @param panel_fields panel to group the components
+     * @param gbc <code>GridBagConstraints</code> instance to specify <code>GridBagLayout</code> properties
+     * @param gridy <code>int</code> to specify the label-text pair
+     * @param label_name label name
+     * @param field <code>JTextField</code> instance
      */
     protected void createLabelAndField(JPanel panel_fields, GridBagConstraints gbc, int gridy, String label_name, JTextField field) {
         gbc.gridy = gridy;

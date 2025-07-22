@@ -23,6 +23,7 @@ public class DBHandler {
     public static Connection getInstance() {
         if (DBHandler.conn == null) {
             Properties db_prop = DBProperties.getInstance();
+            System.out.println(db_prop.getProperty("host") + " " + db_prop.getProperty("port"));
             try {
                 DBHandler.conn = DriverManager.getConnection(
                     "jdbc:mysql://" + db_prop.getProperty("host") + ":" + db_prop.getProperty("port") + "/" + db_prop.getProperty("db_name"),
