@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 21, 2025 alle 15:30
+-- Creato il: Lug 22, 2025 alle 17:47
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `people`
+-- Struttura della tabella `contacts`
 --
 
-CREATE TABLE `people` (
+CREATE TABLE `contacts` (
   `id` int(11) NOT NULL,
   `username_fk` varchar(30) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -38,18 +38,19 @@ CREATE TABLE `people` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `people`
+-- Dump dei dati per la tabella `contacts`
 --
 
-INSERT INTO `people` (`id`, `username_fk`, `name`, `surname`, `address`, `phone`, `age`) VALUES
+INSERT INTO `contacts` (`id`, `username_fk`, `name`, `surname`, `address`, `phone`, `age`) VALUES
 (1, 'admin', 'Giuseppe', 'Trivisano', 'Via Pertini', '+39 3110649372', 33),
 (2, 'admin', 'Mario', 'Rossi', 'Via Giovanni Paolo II', '+39 3420861723', 25),
 (3, 'admin', 'Giovanni', 'Storti', 'Via Kennedy', '3798865740', 68),
 (4, 'admin', 'Aldo', 'Baglio', 'Via Aldo Moro', '+39 4361581045', 66),
-(6, 'turing', 'John', 'Von Neumann', 'Fuld Hall', '+39 384693566', 54),
-(7, 'turing', 'Kurt', 'Godel', 'Via A. Einstein', '+39 3110649372', 72),
-(8, 'turing', 'Alonzo', 'Church', 'Via Washington', '+39 4361581045', 92),
-(15, 'admin', 'Linus', 'Torvalds', 'Piazza Aperta', '4653930405', 60);
+(6, 'turing', 'John', 'Von Neumann', 'Fuld Hall - IAS - USA', '+39 384693566', 54),
+(7, 'turing', 'Kurt', 'Godel', 'Via A. Einstein 34', '+39 311064937', 72),
+(8, 'turing', 'Alonzo', 'Church', 'Via Washington', '+39 43615810', 92),
+(15, 'admin', 'Linus', 'Torvalds', 'Piazza Aperta', '1272749', 60),
+(17, 'admin', 'Federico', 'Faggin', 'Via Intel', '4004', 83);
 
 -- --------------------------------------------------------
 
@@ -75,9 +76,9 @@ INSERT INTO `users` (`username`, `password`) VALUES
 --
 
 --
--- Indici per le tabelle `people`
+-- Indici per le tabelle `contacts`
 --
-ALTER TABLE `people`
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `username_fk` (`username_fk`);
 
@@ -92,19 +93,19 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT per la tabella `people`
+-- AUTO_INCREMENT per la tabella `contacts`
 --
-ALTER TABLE `people`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Limiti per le tabelle scaricate
 --
 
 --
--- Limiti per la tabella `people`
+-- Limiti per la tabella `contacts`
 --
-ALTER TABLE `people`
+ALTER TABLE `contacts`
   ADD CONSTRAINT `username_fk` FOREIGN KEY (`username_fk`) REFERENCES `users` (`username`) ON UPDATE CASCADE;
 COMMIT;
 
