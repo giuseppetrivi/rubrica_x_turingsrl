@@ -1,0 +1,5 @@
+host = ip host o localhost
+port = porta
+db_name = nome del database
+user = nome utente
+password = password utente
